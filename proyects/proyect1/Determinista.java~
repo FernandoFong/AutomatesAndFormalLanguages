@@ -1,0 +1,31 @@
+/**
+ *Proyecto de la materia de Autómatas y Lenguajes Formales.
+ *@author Fong Baeza Luis Fernando Yang.
+ *@date 28 / 02 / 2017
+ *@version 1.0
+ */
+public class Determinista{
+
+    private Estado [] Q;
+    private char [] alfabeto;
+    private Estado actual;
+
+    public Determinista(String edos, String sigma, String [] delta){
+	this.Q = edos.toCharArray();
+	this.alfabeto = sigma.toCharArray();
+	for(int i = 0; i < edos.length(); i++)
+	    Q[i] = new Estado(delta[i]);
+    }
+
+    public boolean leeCadena(String cadena){
+	
+    }
+
+    public String imprimeTabla(){
+	
+    }
+
+    private void hazTransicion(char c, Estado e){
+
+    }
+}
