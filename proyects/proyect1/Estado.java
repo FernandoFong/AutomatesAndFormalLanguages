@@ -7,29 +7,25 @@
  */
 public class Estado {
 
-    public int simbolo;
-    public int [] transiciones;
-    public boolean esFinal; //Tiene sentido hacerla pública.
+    public int simbolo; //Símbolo del estado.
+    public int [] transiciones; //Contradominios de Delta.
     
-    public Estado(int i, String [][] delta, int n, int [] finales){
-	this.simbolo = i;
-	this.transiciones = new int [n];
-	for(int j = 0; j < n; j++)
-	    transiciones[j] = Integer.parseInt(delta [i][j]);
-	for(int j : finales)
-	    esFinal = j == this.simbolo;
+    public Estado() { }
+
+    public void tomaEstados(String [] e) {
+	this.transiciones = new int[e.length];
+	for(int i= 0; i < e.length; i++)
+	    transiciones[i]= Integer.parseInt(e[i]);
     }
 
-    public Estado() {
-	this.simbolo = -1;
-	this.esFinal = false;
+    public int procesa(char c, char [] alf) {
+	for(int i = 0; i < alf.length; i++)
+	    if(c == alf[i])
+		return transiciones[i];
+	return 0;
     }
 
-    public String toString(){
-	return null;
-    }
-
-    public int getSimbolo(){
-	return this.simbolo;
+    public String toString() {
+	return Integer.toString(this.simbolo);
     }
 }
